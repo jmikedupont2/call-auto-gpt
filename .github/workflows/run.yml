@@ -52,4 +52,4 @@ jobs:
         AI_GOAL_COUNT: "4"
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         GITHUB_PAT: ${{ secrets.MIKETEST2 }}
-        GITHUB_REPO: "nickinparadise2/call-auto-gpt"  
+        GITHUB_REPO: "jmikedupont/call-auto-gpt"  
