@@ -1,21 +1,6 @@
 version: '3'
 services:
-  mockopenai: # interface
-    healthcheck:
-      test: curl --fail http://127.0.0.1:8080/v1/models
-      interval: 5s
-      timeout: 5s
-      retries: 5      
-    environment:
-      - GITHUB_PAT=${GITHUB_PAT}
-      - GITHUB_REPO=${GITHUB_REPO}
-    image: h4ckermike/mockopenai
-    ports:
-      -  "8080:5000"
-
   autogpt: #the beast
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     entrypoint: |
       bash -c "poetry run autogpt --install-plugin-deps \
       --skip-news \
@@ -45,5 +30,4 @@ services:
       #- OPENAI_API_BASE=http://mockopenai:8080/v1
       #- OPENAI_API_BASE=http://host.docker.internal:8080/v1
     image: h4ckermike/autogpt
-    depends_on:
-      - mockopenai
+    
